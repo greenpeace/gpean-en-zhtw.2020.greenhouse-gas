@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://change.greenpeace.org.tw/2020/petition/zh-TW.2020-greenhouse-gas.signup/precache-manifest.67bc1c29348e990eaf1f1c5eeb3fba9f.js"
+  "https://change.greenpeace.org.tw/2020/petition/zh-TW.2020-greenhouse-gas.signup/precache-manifest.94bd9a011cf3f6330f418591c3624fb1.js"
 );
 
 self.addEventListener('message', (event) => {

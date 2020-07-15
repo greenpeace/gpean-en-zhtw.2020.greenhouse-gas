@@ -9,8 +9,8 @@ function initProgressBar() {
         duration: 1400,
         color: 'rgb(85, 112,71)',
         trailColor: 'transparent',
-        trailWidth: 3,
-        svgStyle: {width: '100%', height: '100%', borderRadius: "10px"}
+        trailWidth: 2,
+        svgStyle: {width: '100%', height: '80%', borderRadius: "10px", padding: "1px 0"}
     });
     bar.animate(0.15);
 }
@@ -28,19 +28,7 @@ function createYearOptions() {
     }
 }
 
-const resolveEnPagePetitionStatus = () => {
-	let status = "FRESH";
-	// console.log(window);
-	if (window.pageJson.pageNumber === 2) {
-		status = "SUCC"; // succ page
-	} else {
-		status = "FRESH"; // start page
-	}
-
-	return status;
-};
-
-const initForm = () => {
+function initForm () {
     console.log('init form')
 
     // $('#center_sign-submit').click(function(e){
@@ -125,16 +113,22 @@ function initPageEventHandler () {
 
     $(".hidden-part").hide()
 
-    // $('.to-top-btn').click(function(e){
-    //     $('#center_sign-submit').trigger('click')    
-    // }).end()
+    if ($(window).width() <= 991) {
+        $('.to-top-btn').click(function(e){
+            $('#center_sign-submit').trigger('click')    
+        }).end()
+    } else {
+        $('.page-2').removeClass('normal-scroll')
+    }
 
     $('#center_sign-submit').click(function(e){
         e.preventDefault();
         
         if (!$("#center_sign-submit").hasClass("active")) {
             $(".hidden-part").fadeIn();
+            $(".section__scroll").hide();
             $("#center_sign-submit").addClass("active");
+            $.fn.fullpage.reBuild();
         } else {
             $("#fake-form").submit();
             console.log("fake-form submitting");
@@ -145,7 +139,9 @@ function initPageEventHandler () {
     $('.close-form-link').click(function(e){
         e.preventDefault();
         $(".hidden-part").fadeOut()
+        $(".section__scroll").show();
         $("#center_sign-submit").removeClass("active")
+        $.fn.fullpage.reBuild();
     }).end()
 
     // mobile transplant
@@ -175,7 +171,9 @@ function initPageEventHandler () {
         $('.sink__countries').removeClass('active');
         if ($('.sink__countries').hasClass('active')) {
             $('.sink__taiwan').css('z-index', 2)
+            $('.sink__countries').css('z-index', 6)
         } else {
+            $('.sink__countries').css('z-index', 0)
             $('.sink__taiwan').css('z-index', 4)
         }
     })

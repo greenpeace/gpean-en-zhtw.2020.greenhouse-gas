@@ -247,11 +247,11 @@
         document.body.className = document.body.className.replace(/pace-done/g, '');
         document.body.className += ' pace-running';
         this.el.innerHTML = '<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>\n<div class="pace-activity"></div>';
-        if (targetElement.firstChild != null) {
-          targetElement.insertBefore(this.el, targetElement.firstChild);
-        } else {
-          targetElement.appendChild(this.el);
-        }
+        // if (targetElement.firstChild != null) {
+        //   targetElement.insertBefore(this.el, targetElement.firstChild);
+        // } else {
+        //   targetElement.appendChild(this.el);
+        // }
       }
       return this.el;
     };
