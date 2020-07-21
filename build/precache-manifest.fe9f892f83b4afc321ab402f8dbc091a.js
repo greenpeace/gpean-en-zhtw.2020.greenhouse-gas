@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c58a69406625e75cae62cf2ffcd6d837",
+    "revision": "03e9f1f703bcc1c890b3fc2395fa0c2e",
     "url": "https://change.greenpeace.org.tw/2020/petition/zh-TW.2020-greenhouse-gas.signup/index.html"
   },
   {
